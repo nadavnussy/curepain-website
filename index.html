@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CurePain | נדב נוסבאום - ריפוי מכאב כרוני TMS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #556b2f; /* ירוק זית עמוק הוליסטי */
+            --primary-light: #7b9454;
+            --bg-color: #f3eee4; /* רקע חמים: Soft Clay */
+            --white: #ffffff;
+            --text-dark: #1f2b20;
+            --text-light: #5a665b;
+            --glass-bg: rgba(255, 255, 255, 0.8);
+            --card-shadow: 0 10px 30px rgba(0,0,0,0.04);
+        }
+
+        body {
+            font-family: 'Noto Sans Hebrew', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            background-color: var(--bg-color);
+            /* טקסטורת נייר עדינה לעומק ותחושה איכותית */
+            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+            scroll-behavior: smooth;
+            line-height: 1.8;
+        }
+
+        /* --- Header: מרוכז ונקי --- */
+        header {
+            background: rgba(243, 238, 228, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 25px 20px 15px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(85, 107, 47, 0.08);
+        }
+
+        header .logo img {
+            height: 120px;
+            margin-bottom: 10px;
+        }
+
+        nav { display: flex; gap: 25px; justify-content: center; flex-wrap: wrap; }
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 1.1rem;
+            position: relative;
+            padding-bottom: 6px;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            right: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        nav a:hover::after { width: 100%; }
+
+        /* --- Hero Section --- */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 90px 10% 110px 10%;
+            gap: 50px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(85,107,47,0.02) 100%);
+        }
+
+        .hero-text { flex: 1.1; text-align: right; }
+        .hero-text h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            line-height: 1.1;
+            margin: 0 0 25px 0;
+            letter-spacing: -0.5px;
+        }
+        
+        .hero-text p { 
+            font-size: 1.4rem; 
+            margin-bottom: 45px; 
+            color: var(--text-light); 
+            max-width: 650px;
+        }
+        
+        .hero-image {
+            flex: 0.9;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            width: 380px;
+            height: 380px;
+            object-fit: cover; 
+            border-radius: 50%;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.1);
+            border: 10px solid var(--white);
+        }
+
+        /* Buttons */
+        .btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 16px 45px;
+            border-radius: 50px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 18px rgba(85, 107, 47, 0.3);
+        }
+        .btn:hover { background-color: var(--primary-light); transform: translateY(-4px); box-shadow: 0 8px 22px rgba(85, 107, 47, 0.4); }
+
+        /* --- Quote Section --- */
+        .quote-section {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 50px 20px;
+            font-family: serif;
+        }
+
+        .quote-section h2 {
+            font-size: 2.2rem;
+            font-weight: 300;
+            font-style: italic;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* --- General Layout --- */
+        .section-padding { padding: 100px 10%; text-align: center; }
+        .section-title { font-size: 3rem; color: var(--primary-color); margin: 0 0 20px 0; font-weight: 800; letter-spacing: -0.5px; }
+        .section-subtitle { font-size: 1.3rem; color: var(--text-light); margin-bottom: 60px; max-width: 700px; margin-left: auto; margin-right: auto;}
+
+        /* --- Self Assessment Grid --- */
+        .assessment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        .check-card {
+            background: var(--white);
+            padding: 35px;
+            border-radius: 18px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease;
+        }
+        .check-card:hover { transform: translateY(-8px); }
+        .check-icon {
+            background: #e9f2e9;
+            color: var(--primary-color);
+            min-width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+        .check-card p { margin: 0; font-size: 1.15rem; font-weight: 500; padding-top: 8px; line-height: 1.6;}
+
+        /* --- About Section --- */
+        .about-section {
+            background: var(--white);
+            border-radius: 35px;
+            margin: 0 5%;
+            padding: 90px 8%;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.03);
+            text-align: center;
+        }
+        .about-content { max-width: 850px; margin: 0 auto; }
+        .about-content p { font-size: 1.25rem; margin-bottom: 25px; font-weight: 300; line-height: 1.8; color: #444;}
+
+        /* --- FAQ Accordion --- */
+        .faq-section { max-width: 850px; margin: 0 auto; text-align: right; }
+        details {
+            background: var(--white);
+            margin-bottom: 18px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        details[open] { box-shadow: 0 8px 25px rgba(0,0,0,0.07); }
+        summary {
+            padding: 25px 30px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--primary-color);
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary::after { content: '+'; font-size: 1.8rem; font-weight: 300; transition: transform 0.3s ease; }
+        details[open] summary::after { transform: rotate(45deg); }
+        .faq-content { padding: 0 30px 30px 30px; color: var(--text-light); font-size: 1.15rem; font-weight: 400; line-height: 1.7;}
+
+        /* --- Testimonials --- */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+        .testimonial-card {
+            background: var(--white);
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            position: relative;
+            text-align: right;
+        }
+        .testimonial-card::before {
+            content: "״"; font-size: 8rem; color: var(--primary-color); opacity: 0.1;
+            position: absolute; top: -15px; right: 25px; font-family: serif;
+        }
+        .testimonial-card p { font-style: italic; font-size: 1.2rem; z-index: 2; position: relative; font-weight: 300;}
+        .testimonial-card strong { color: var(--primary-color); display: block; margin-top: 25px; font-weight: 700;}
+
+        /* --- Research Cards (NEW) --- */
+        .research-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease;
+            text-align: right;
+            border-top: 4px solid var(--primary-color);
+        }
+        .research-card:hover { transform: translateY(-8px); }
+        .research-card h3 { color: var(--primary-color); margin-top: 0; margin-bottom: 15px; font-size: 1.4rem; font-weight: 700; }
+        .research-card p { font-size: 1.15rem; line-height: 1.6; margin: 0; color: var(--text-dark); }
+
+        /* --- CTA / Contact --- */
+        .cta-section {
+            background: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 100px 20px;
+            margin-top: 80px;
+        }
+        .cta-section h2 { font-size: 3rem; margin-bottom: 25px; font-weight: 800; letter-spacing: -0.5px; }
+        .cta-section p { font-size: 1.5rem; font-weight: 300; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;}
+        .cta-section .btn { background: var(--white); color: var(--primary-color); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+        .cta-section .btn:hover { background: #f4f4f4; box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+
+        /* Floating WhatsApp עם טקסט */
+        .whatsapp-float {
+            position: fixed; bottom: 35px; right: 35px;
+            background-color: #25d366; color: var(--white);
+            padding: 12px 28px; border-radius: 50px; text-decoration: none;
+            display: flex; align-items: center; gap: 12px;
+            font-weight: 700; font-size: 1.1rem;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); z-index: 1000;
+            transition: transform 0.2s;
+        }
+        .whatsapp-float:hover { transform: scale(1.05); }
+        .whatsapp-float svg { width: 28px; height: 28px; fill: currentColor; }
+
+        footer { text-align: center; padding: 45px; background: rgba(85, 107, 47, 0.05); font-size: 1rem; color: var(--text-light); }
+
+        @media (max-width: 1024px) {
+            .hero { padding: 80px 5%; gap: 40px; }
+            .hero-text h1 { font-size: 3.2rem; }
+            .hero-image img { width: 320px; height: 320px; }
+        }
+
+        @media (max-width: 768px) {
+            .hero { flex-direction: column-reverse; text-align: center; padding: 60px 5% 80px 5%; }
+            .hero-text { text-align: center; padding-left: 0; }
+            .hero-text p { margin-left: auto; margin-right: auto; }
+            .hero-image img { width: 260px; height: 260px; border-radius: 50%; }
+            .section-title { font-size: 2.3rem; }
+            .section-padding { padding: 70px 5%; }
+            .whatsapp-float span { display: none; }
+            .whatsapp-float { padding: 18px; bottom: 20px; right: 20px; border-radius: 50%; }
+            .about-section { margin: 0; border-radius: 0; padding: 70px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="logo.png" alt="CurePain לוגו">
+    </div>
+    <nav>
+        <a href="#assessment">האם זה מתאים לי?</a>
+        <a href="#about">הסיפור שלי</a>
+        <a href="#faq">שאלות נפוצות</a>
+        <a href="#testimonials">הצלחות</a>
+        <a href="#research">מדע ומחקר</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-text">
+        <h1>הכאב אמיתי,<br>אבל אתם יכולים להתרפא ממנו.</h1>
+        <p>כאב כרוני הוא לא גזירת גורל. שילוב מדויק של חיווט עצבי מחדש (TMS) ורפואה סינית, עוזר למוח ולגוף להפסיק לייצר כאב ולחזור לחיים מלאים.</p>
+        <a href="#contact" class="btn">לתיאום שיחת ייעוץ</a>
+    </div>
+    <div class="hero-image">
+        <img src="nadav-profile.jpg" alt="נדב נוסבאום בקליניקה">
+    </div>
+</section>
+
+<section class="quote-section">
+    <h2>"אני יודע מה זה לחיות עם כאב כרוני. אני גם יודע איך יוצאים מזה."</h2>
+</section>
+
+<section id="assessment" class="section-padding">
+    <div class="text-center">
+        <h2 class="section-title">האם האתר הזה בשבילכם?</h2>
+        <p class="section-subtitle">אם אתם מזדהים עם המשפטים הבאים, הגיע הזמן לחשב מסלול מחדש.</p>
+    </div>
+    <div class="assessment-grid">
+        <div class="check-card">
+            <div class="check-icon">✓</div>
+            <p>הכאב נמשך מעל 3-6 חודשים, גם כשהפציעה המקורית הייתה אמורה להחלים ממזמן.</p>
+        </div>
+        <div class="check-card">
+            <div class="check-icon">✓</div>
+            <p>הרופא שלל מחלה מסוכנת, הבדיקות (MRI/CT) תקינות או מראות שינויים ניווניים רגילים לגיל.</p>
+        </div>
+        <div class="check-card">
+            <div class="check-icon">✓</div>
+            <p>אתם מתוסכלים כי ניסיתם הכל: כדורים, זריקות, דיקור, כירופרקטיקה – וכלום לא מחזיק מעמד.</p>
+        </div>
+        <div class="check-card">
+            <div class="check-icon">✓</div>
+            <p>הכאב שלכם "נודד", משנה עוצמות, ולפעמים מושפע מלחץ, סטרס או תקופות עמוסות בחיים.</p>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="about-section section-padding">
+    <div class="about-content">
+        <h2 class="section-title">הסיפור שלי</h2>
+        <p>שלוש שנים לא יכולתי לשבת. שלוש שנים של חיפושים, טיפולים יקרים, ייאוש ותחושה שהגוף שלי פשוט "שבור".</p>
+        <p>נקודת המפנה הייתה כשנחשפתי למדע מאחורי תסמונת ה-TMS. הבנתי שהרקמה שלי בריאה לחלוטין, אבל המוח שלי נכנס למצב של "אזעקת שווא" ולמד לייצר תגובת כאב חזקה כדי להגן עליי ממתח רגשי ועומס.</p>
+        <p>ברגע שהבנתי את המנגנון ולמדתי איך להרגיע את מערכת העצבים, הכאב פשוט נעלם. היום, המטרה שלי היא לקצר לכם את הדרך, ולהראות לכם איך אפשר להחזיר את הגוף לאיזון.</p>
+    </div>
+</section>
+
+<section id="faq" class="section-padding">
+    <div class="text-center">
+        <h2 class="section-title">שאלות נפוצות</h2>
+        <p class="section-subtitle">כל מה שרציתם לדעת על תהליך הריפוי</p>
+    </div>
+    <div class="faq-section">
+        <details>
+            <summary>מה זה בכלל TMS?</summary>
+            <div class="faq-content">
+                TMS (Tension Myositis Syndrome) הוא מונח שטבע ד"ר ג'ון סארנו. זה מתאר מצב שבו המוח יוצר כאב פיזי אמיתי לחלוטין בגוף (דרך כיווץ כלי דם ושרירים), לא בגלל נזק מבני, אלא כתוצאה ממתח, עומס רגשי או עוררות יתר של מערכת העצבים.
+            </div>
+        </details>
+        <details>
+            <summary>יש לי אבחנה של פריצת דיסק ב-MRI. האם זה עדיין יכול להיות TMS?</summary>
+            <div class="faq-content">
+                בהחלט כן. מחקרים מראים שלרוב האוכלוסייה הבוגרת יש פריצות דיסק או בלטים ללא שום כאב. פעמים רבות, האבחנה קיימת, אך המקור לכאב *הכרוני* והמתמשך הוא עצבי (TMS) ולא מבני.
+            </div>
+        </details>
+        <details>
+            <summary>איך משתלבת הרפואה הסינית בטיפול?</summary>
+            <div class="faq-content">
+                הרפואה הסינית מאפשרת לנו "לדבר" עם הגוף. דרך דיקור ממוקד, אנחנו מורידים את העוררות של מערכת העצבים (מעבר ממצב Fight or Flight למצב Rest and Digest), מה שמאפשר למוח לקבל מהר יותר את תהליך החיווט מחדש (Neuroplasticity).
+            </div>
+        </details>
+        <details>
+            <summary>כמה זמן לוקח עד שרואים שיפור?</summary>
+            <div class="faq-content">
+                תהליך ההחלמה משתנה מאדם לאדם. חלק חווים הקלה משמעותית כבר בשבועות הראשונים, במיוחד כשהם מבינים באמת את המנגנון. עבור אחרים, במיוחד כאבים מורכבים וותיקים, התהליך של לימוד המוח מחדש עשוי לדרוש התמדה ותרגול של חודשים מספר.
+            </div>
+        </details>
+        <details>
+            <summary>לפעמים כואב לי בברך, ואז זה עובר לכתף. האם זה נורמלי?</summary>
+            <div class="faq-content">
+                "נדידת כאב" (Symptom Imperative) היא אחת ההוכחות החזקות ביותר לכך שמדובר ב-TMS. כשהמוח מבין שהפסקנו לפחד מהכאב בגב, הוא עלול "לנסות" לייצר כאב במקום חדש כדי לשמר את ההסחה. כשלומדים לזהות את הדפוס הזה, קל יותר לעצור אותו.
+            </div>
+        </details>
+        <details>
+            <summary>האם הטיפול מתאים גם לפיברומיאלגיה ועייפות כרונית?</summary>
+            <div class="faq-content">
+                כן. פיברומיאלגיה ותשישות כרונית קשורות קשר ישיר למערכת עצבים שנמצאת בעוררות יתר כרונית ומייצרת דלקתיות וכאב מפושט. ההתמקדות בהרגעת המערכת וחיווט מחדש היא המפתח העיקרי להחלמה ממצבים אלו.
+            </div>
+        </details>
+    </div>
+</section>
+
+<section id="testimonials" class="section-padding">
+    <div class="text-center">
+        <h2 class="section-title">מטופלים מספרים</h2>
+    </div>
+    <div class="testimonials-grid">
+        <div class="testimonial-card">
+            <p>"הייתי סקפטי בהתחלה, אבל אחרי פגישה אחת הבנתי שאני במקום הנכון. הגישה של נדב הגיונית, מדעית, והכי חשוב - עובדת. חזרתי לרוץ אחרי שנתיים."</p>
+            <strong>- אסף ג.</strong>
+        </div>
+        <div class="testimonial-card">
+            <p>"החיבור בין הגוף לנפש אף פעם לא הוסבר לי בצורה כל כך ברורה. הטיפול בקליניקה שחרר אותי מכאבי אגן שרופאים אמרו שאין להם פתרון."</p>
+            <strong>- מאיה ר.</strong>
+        </div>
+        <div class="testimonial-card">
+            <p>"סבלתי ממיגרנות ופיברומיאלגיה. הידיעה שהמוח שלי בסך הכל מנסה להגן עליי עזרה לי להפסיק לפחד מהכאב. התוצאות מדהימות."</p>
+            <strong>- יעל ד.</strong>
+        </div>
+    </div>
+</section>
+
+<section id="research" class="section-padding">
+    <div class="text-center">
+        <h2 class="section-title">המדע מאחורי הריפוי</h2>
+        <p class="section-subtitle">הגישה לריפוי מכאב כרוני אינה קסם. היא מגובה במחקרים קליניים ומדעיים מובילים.</p>
+    </div>
+    <div class="assessment-grid">
+        <div class="research-card">
+            <h3>מחקר אוניברסיטת קולורדו (JAMA, 2021)</h3>
+            <p>מחקר פורץ דרך שהוכיח כי טיפול המבוסס על חיווט מחדש של המוח (PRT) העלים לחלוטין, או כמעט לחלוטין, כאבי גב כרוניים בקרב 66% מהמטופלים, לעומת 20% בלבד בקבוצת הביקורת.</p>
+        </div>
+        <div class="research-card">
+            <h3>מודל ה-Mind-Body של ד"ר סארנו</h3>
+            <p>מעקבים קליניים ארוכי טווח אחרי אלפי מטופלים של ד"ר ג'ון סארנו הראו אחוזי הצלחה חסרי תקדים בריפוי כאבים כרוניים (גב, צוואר, פיברומיאלגיה) ללא התערבות כירופרקטית או רפואית, רק על ידי הבנת המנגנון העצבי.</p>
+        </div>
+        <div class="research-card">
+            <h3>יעילות הדיקור הסיני (NIH)</h3>
+            <p>מחקרי הדמיה מראים כי דיקור סיני משפיע ישירות על מערכת העצבים המרכזית, מפחית פעילות באזורי מוח הקשורים לכאב וסטרס, ומעודד מעבר אקטיבי ממצב הישרדותי (Fight or Flight) למצב של ריפוי.</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="cta-section">
+    <div class="about-content">
+        <h2>הגיע הזמן להפסיק לנהל את הכאב.</h2>
+        <p>שלחו לי הודעה בוואטסאפ ונבדוק יחד בשיחה קצרה האם אתם מתאימים לתהליך הריפוי בשיטת CurePain.</p>
+        <a href="https://wa.me/972500000000" class="btn">לתיאום שיחת ייעוץ בוואטסאפ</a>
+    </div>
+</section>
+
+<a href="https://wa.me/972500000000" class="whatsapp-float" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.628 1.433h.005c6.554 0 11.89-5.335 11.893-11.892a11.826 11.826 0 00-3.481-8.413z"/></svg>
+    <span>לשיחת ייעוץ</span>
+</a>
+
+<footer>
+    <p>&copy; 2026 CurePain | נדב נוסבאום - ריפוי כאב כרוני. כל הזכויות שמורות.</p>
+</footer>
+
+</body>
+</html>
