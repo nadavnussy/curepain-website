@@ -488,6 +488,37 @@
         lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // מניעה של ערכים שליליים
     }, false);
 </script>
+<section style="padding: 40px 10%; background: rgba(85, 107, 47, 0.03); text-align: center; border-top: 1px solid rgba(85, 107, 47, 0.05);">
+    <div style="max-width: 800px; margin: 0 auto; font-size: 0.9rem; color: var(--text-light); line-height: 1.6;">
+        <h4 style="margin-bottom: 10px; color: var(--primary-color);">הבהרה חשובה</h4>
+        <p>
+            התכנים המופיעים באתר זה נועדו למטרות העשרה ומידע בלבד ואינם מהווים תחליף לייעוץ, אבחון או טיפול רפואי מקצועי. 
+            שיטת TMS והרפואה הסינית אינן מחליפות בדיקת רופא, ויש לשלול גורמים מבניים או מחלות מסכנות לפני תחילת התהליך. 
+            כל הסתמכות על המידע באתר היא על אחריות המשתמש בלבד. התוצאות מהטיפול הן אינדיבידואליות ומשתנות ממטופל למטופל.
+        </p>
+    </div>
+</section>
 
+<footer>
+    <p>&copy; 2026 CurePain | נדב נוסבאום - ריפוי כאב כרוני. כל הזכויות שמורות.</p>
+</footer>
+
+<script>
+    // קוד להסתרת/הצגת התפריט בגלילה
+    let lastScrollTop = 0;
+    const header = document.getElementById("main-header");
+
+    window.addEventListener("scroll", function() {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > lastScrollTop && scrollTop > 50) {
+            header.classList.add("nav-hidden");
+        } else {
+            header.classList.remove("nav-hidden");
+        }
+        
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    }, false);
+</script>
 </body>
 </html>
